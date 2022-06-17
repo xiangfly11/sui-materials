@@ -1,4 +1,4 @@
-/// Copyright (c) 2021 Razeware LLC
+/// Copyright (c) 2022 Razeware LLC
 /// 
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
@@ -32,30 +32,26 @@
 
 import SwiftUI
 
-struct ColorCircle: View {
-    let rgb: RGB
-    let size: CGFloat
+struct NeuButtonStyle: ButtonStyle {
+    let width: CGFloat
+    let height: CGFloat
+   
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .opacity(configuration.isPressed ? 0.2 : 1)
+            .frame(width: width, height: height)
+            .background(Group {
+                if configuration.isPressed {
+                    Capsule()
+                        .fill(Color.element)
+                        .southEastShadow()
+                } else {
+                    Capsule()
+                        .fill(Color.element)
+                        .northWestShadow()
+                }
+            })
+            .foregroundColor(Color(UIColor.systemBlue))
+    }
     
-    var body: some View {
-        ZStack {
-            Circle()
-                .fill(Color.element)
-                .northWestShadow()
-            Circle()
-                .fill(Color(red: rgb.red, green: rgb.green, blue: rgb.blue))
-                .padding(20)
-        }
-        .frame(width: size, height: size)
-    }
-}
-
-struct ColorCircle_Previews: PreviewProvider {
-    static var previews: some View {
-        ZStack {
-            Color.element
-            ColorCircle(rgb: RGB(), size: 200)
-        }
-        .frame(width: 300, height: 300)
-        .previewLayout(.sizeThatFits)
-    }
 }
