@@ -34,12 +34,60 @@ import SwiftUI
 
 struct WelcomeView: View {
     var body: some View {
-        Text("Welcome to Kuchi")
-            .font(.system(size: 60))
-            .bold()
-            .foregroundColor(.red)
-            .multilineTextAlignment(.center)
-            .lineLimit(2)
+        ZStack {
+            Image("welcome-background", bundle: nil)
+                .resizable()
+                .aspectRatio(1 / 1, contentMode: .fill)
+                .edgesIgnoringSafeArea(.all)
+                .saturation(0.5)
+                .blur(radius: 5)
+                .opacity(0.18)
+            Label {
+                VStack(alignment: .leading, spacing: nil, content: {
+                    Text("Welcome to")
+                        .font(.headline)
+                        .bold()
+                    Text("Kuchi")
+                        .font(.largeTitle)
+                        .bold()
+                })
+                .foregroundColor(.red)
+                .lineLimit(1)
+                .padding(.horizontal)
+            } icon: {
+                Image(systemName: "table")
+                    .resizable()
+                    .frame(width: 30, height: 30, alignment: .center)
+                    .overlay(Circle().stroke(Color.gray, lineWidth: 1))
+                    .background(Color(white: 0.9))
+                    .clipShape(Circle())
+                    .foregroundColor(.red)
+            }
+            .labelStyle(HorizontallyAlignedLabelStyle(aligment: .center, space: 5))
+            
+            
+//            HStack(alignment: .center, spacing: 10, content: {
+//                Image(systemName: "table")
+//                    .resizable()
+//                    .frame(width: 30, height: 30, alignment: .center)
+//                    .overlay(Circle().stroke(Color.gray, lineWidth: 1))
+//                    .background(Color(white: 0.9))
+//                    .clipShape(Circle())
+//                    .foregroundColor(.red)
+//
+//                VStack(alignment: .leading, spacing: nil, content: {
+//                    Text("Welcome to")
+//                        .font(.headline)
+//                        .bold()
+//                    Text("Kuchi")
+//                        .font(.largeTitle)
+//                        .bold()
+//                })
+//                .foregroundColor(.red)
+//                .lineLimit(1)
+//                .padding(.horizontal)
+//            })
+        }
     }
 }
 
