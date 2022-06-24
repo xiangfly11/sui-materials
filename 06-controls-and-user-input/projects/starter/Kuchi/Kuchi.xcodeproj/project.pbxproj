@@ -27,6 +27,14 @@
 		57EF341424E89F92004ABEB2 /* KuchiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EF340024E89F91004ABEB2 /* KuchiApp.swift */; };
 		57F8DD6926EEC01300153B9F /* HorizontallyAlignedLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F8DD6826EEC01300153B9F /* HorizontallyAlignedLabelStyle.swift */; };
 		57F8DD6A26EEC01300153B9F /* HorizontallyAlignedLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F8DD6826EEC01300153B9F /* HorizontallyAlignedLabelStyle.swift */; };
+		7AE630CC2865AD8B008280D0 /* WelcomeBackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE630CB2865AD8B008280D0 /* WelcomeBackgroundImage.swift */; };
+		7AE630CD2865AD97008280D0 /* WelcomeBackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE630CB2865AD8B008280D0 /* WelcomeBackgroundImage.swift */; };
+		7AE630CF2865B236008280D0 /* LogoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE630CE2865B236008280D0 /* LogoImage.swift */; };
+		7AE630D02865B236008280D0 /* LogoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE630CE2865B236008280D0 /* LogoImage.swift */; };
+		7AE630D22865B2FE008280D0 /* WelcomeMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE630D12865B2FE008280D0 /* WelcomeMessageView.swift */; };
+		7AE630D32865B2FE008280D0 /* WelcomeMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE630D12865B2FE008280D0 /* WelcomeMessageView.swift */; };
+		7AE630D52865B429008280D0 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE630D42865B429008280D0 /* RegisterView.swift */; };
+		7AE630D62865B429008280D0 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE630D42865B429008280D0 /* RegisterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +53,10 @@
 		57EF341124E89F92004ABEB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57EF341224E89F92004ABEB2 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		57F8DD6826EEC01300153B9F /* HorizontallyAlignedLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontallyAlignedLabelStyle.swift; sourceTree = "<group>"; };
+		7AE630CB2865AD8B008280D0 /* WelcomeBackgroundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeBackgroundImage.swift; sourceTree = "<group>"; };
+		7AE630CE2865B236008280D0 /* LogoImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoImage.swift; sourceTree = "<group>"; };
+		7AE630D12865B2FE008280D0 /* WelcomeMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeMessageView.swift; sourceTree = "<group>"; };
+		7AE630D42865B429008280D0 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +108,10 @@
 		579CB98926EA18AA0009C09F /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
+				7AE630CA2865AD46008280D0 /* Components */,
 				579CB98A26EA1BE30009C09F /* WelcomeView.swift */,
 				57F8DD6826EEC01300153B9F /* HorizontallyAlignedLabelStyle.swift */,
+				7AE630D42865B429008280D0 /* RegisterView.swift */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -148,6 +162,16 @@
 				57EF341224E89F92004ABEB2 /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		7AE630CA2865AD46008280D0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				7AE630CB2865AD8B008280D0 /* WelcomeBackgroundImage.swift */,
+				7AE630CE2865B236008280D0 /* LogoImage.swift */,
+				7AE630D12865B2FE008280D0 /* WelcomeMessageView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,12 +275,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AE630D52865B429008280D0 /* RegisterView.swift in Sources */,
 				57EF341324E89F92004ABEB2 /* KuchiApp.swift in Sources */,
 				5712CCAE26F68A8A000243C2 /* Profile.swift in Sources */,
 				579CB98B26EA1BE30009C09F /* WelcomeView.swift in Sources */,
+				7AE630D22865B2FE008280D0 /* WelcomeMessageView.swift in Sources */,
+				7AE630CF2865B236008280D0 /* LogoImage.swift in Sources */,
 				57F8DD6926EEC01300153B9F /* HorizontallyAlignedLabelStyle.swift in Sources */,
 				5712CCB026F68A8A000243C2 /* Settings.swift in Sources */,
 				5712CCAC26F68A8A000243C2 /* UserManager.swift in Sources */,
+				7AE630CC2865AD8B008280D0 /* WelcomeBackgroundImage.swift in Sources */,
 				57578FDE24E9D943003465A4 /* HomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,12 +293,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AE630D62865B429008280D0 /* RegisterView.swift in Sources */,
 				57EF341424E89F92004ABEB2 /* KuchiApp.swift in Sources */,
 				5712CCAF26F68A8A000243C2 /* Profile.swift in Sources */,
 				579CB98C26EA1BE30009C09F /* WelcomeView.swift in Sources */,
+				7AE630D32865B2FE008280D0 /* WelcomeMessageView.swift in Sources */,
+				7AE630D02865B236008280D0 /* LogoImage.swift in Sources */,
 				57F8DD6A26EEC01300153B9F /* HorizontallyAlignedLabelStyle.swift in Sources */,
 				5712CCB126F68A8A000243C2 /* Settings.swift in Sources */,
 				5712CCAD26F68A8A000243C2 /* UserManager.swift in Sources */,
+				7AE630CD2865AD97008280D0 /* WelcomeBackgroundImage.swift in Sources */,
 				57578FDF24E9D943003465A4 /* HomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
