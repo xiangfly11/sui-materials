@@ -32,21 +32,93 @@
 
 import SwiftUI
 
+struct KuchiTextStyle: TextFieldStyle {
+    public func _body(configuration: TextField<Self._Label>) -> some View {
+        return configuration
+            .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+            .background(.white)
+            .overlay(RoundedRectangle(cornerRadius: 8)
+                .stroke(lineWidth: 2)
+                .foregroundColor(.blue))
+            .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 1, y: 2)
+    }
+}
+
 struct RegisterView: View {
-    @State var name: String = ""
+//    enum Field: Hashable {
+//    case name
+//    }
+    
+//    @State var name: String = ""
+    @EnvironmentObject var userManager: UserManager
+    @FocusState var focusedField: Bool
+    @FocusState var nameFieldFocused: Bool
     
     var body: some View {
         VStack {
             Spacer()
             WelcomeMessageView()
-            TextField("Type your name ...", text: $name)
+            TextField("Type your name ...", text: $userManager.profile.name)
+                .focused($nameFieldFocused)
+                .bordered()
+                .submitLabel(.done)
+                .onSubmit {
+                    registerUser()
+                }
+            HStack {
+                Spacer()
+                Text("\(userManager.profile.name.count)")
+                    .font(.caption)
+                    .foregroundColor(userManager.isUserNameValid() ? .green : .red)
+                    .padding(.trailing)
+            }.padding(.bottom)
+            HStack {
+                Spacer()
+                Toggle(isOn: $userManager.settings.rememberUser) {
+                    Text("Remember me")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                }
+                .fixedSize()
+            }
+            Button(action: registerUser) {
+                HStack {
+                    Image(systemName: "checkmark")
+                        .resizable()
+                        .frame(width: 16, height: 16, alignment: .center)
+                    Text("OK")
+                        .font(.body)
+                        .bold()
+                }
+                
+            }
+            .disabled(!userManager.isUserNameValid())
+            .bordered()
             Spacer()
-        }.background(WelcomeBackgroundImage())
+        }
+        .padding()
+        .background(WelcomeBackgroundImage())
+    }
+}
+
+extension RegisterView {
+    func registerUser() {
+        nameFieldFocused = false
+        if userManager.settings.rememberUser {
+            userManager.persistProfile()
+        } else {
+            userManager.clear()
+        }
+        
+        userManager.persistSettings()
+        userManager.setRegistered()
     }
 }
 
 struct RegisterView_Previews: PreviewProvider {
+    static let user = UserManager(name: "Jiaxiang")
     static var previews: some View {
         RegisterView()
+            .environmentObject(user)
     }
 }
