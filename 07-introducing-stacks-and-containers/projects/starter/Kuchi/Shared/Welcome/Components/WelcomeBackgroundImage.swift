@@ -36,11 +36,12 @@ struct WelcomeBackgroundImage: View {
   var body: some View {
     Image("welcome-background")
       .resizable()
-      .aspectRatio(1 / 1, contentMode: .fill)
+//      .aspectRatio(1 / 1, contentMode: .fill)
       .edgesIgnoringSafeArea(.all)
       .saturation(0.5)
       .blur(radius: 5)
-      .opacity(0.08)
+      .opacity(0.18)
+      .frame(width: 430, height: 900, alignment: .center)
   }
 }
 
