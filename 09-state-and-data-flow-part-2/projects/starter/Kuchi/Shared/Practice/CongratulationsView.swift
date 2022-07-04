@@ -33,7 +33,8 @@
 import SwiftUI
 
 struct CongratulationsView: View {
-    @EnvironmentObject var challengesViewModel: ChallengesViewModel
+  @ObservedObject var challengesViewModel = ChallengesViewModel()
+
   let avatarSize: CGFloat = 120
   let userName: String
 
