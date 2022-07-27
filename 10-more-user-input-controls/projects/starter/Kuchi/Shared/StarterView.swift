@@ -39,6 +39,8 @@ struct StarterView: View {
   var body: some View {
     if userViewModel.isRegistered {
       WelcomeView()
+            .environmentObject(userViewModel)
+            .environmentObject(ChallengesViewModel())
     } else {
       RegisterView()
     }
