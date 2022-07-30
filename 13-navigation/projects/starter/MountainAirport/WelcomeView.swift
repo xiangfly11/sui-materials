@@ -36,25 +36,21 @@ struct WelcomeView: View {
   @StateObject var flightInfo = FlightData()
 
   var body: some View {
-    VStack(alignment: .leading) {
+    NavigationView {
       ZStack(alignment: .topLeading) {
-        // Background
         Image("welcome-background")
           .resizable()
-          .aspectRatio(contentMode: .fill)
-          .frame(width: 375, height: 250)
-          .clipped()
-        //Title
-        VStack {
-          Text("Mountain Airport")
-            .font(.system(size: 28.0, weight: .bold))
-          Text("Flight Status")
-        }
-        .foregroundColor(.white)
-        .padding()
-      }
-      Spacer()
-    }.font(.title)
+          .frame(height: 250)
+        VStack(alignment: .leading) {
+          NavigationLink(destination: FlightStatusBoard()) {
+            Text("Flight Status")
+          }
+          Spacer()
+        }.font(.title)
+          .foregroundColor(.white)
+          .padding()
+      }.navigationTitle("Mountain Aprport")
+    }
   }
 }
 
